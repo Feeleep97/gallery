@@ -1,9 +1,22 @@
-import Link from "next/link";
+const links = [
+  "https://ixejganfmx.ufs.sh/f/AP2FYb1qxSGtAN7Gkm1qxSGtrUcBRyuTeOHjgC2Vad7hJfF4",
+];
 
 export default function HomePage() {
+  const remapedImg = links.map((link, index) => ({
+    id: index + 1,
+    imgUrl: link,
+  }));
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      Yo
+    <main className="">
+      <div>
+        <div className="flex flex-wrap gap-4">
+          {[...remapedImg, ...remapedImg, ...remapedImg].map((img) => (
+            <img src={img.imgUrl} key={img.id} alt="gallery img" />
+          ))}
+        </div>
+      </div>
+      {}
     </main>
   );
 }
